@@ -5,6 +5,7 @@ infinity = float("inf")
 cost = {}
 parents = {}
 processed = []
+# 오현수 입니다.
 
 # 초기화 
 def init(): 
