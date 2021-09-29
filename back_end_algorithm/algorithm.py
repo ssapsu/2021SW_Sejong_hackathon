@@ -6,14 +6,45 @@ cost = {}
 parents = {}
 processed = []
 
-DaeYangAI = arr[0][][][]
+# 초기화 
+def init(): 
+    global graph, infinity, costs, parents, processed 
+    graph = {} # 간선 정보 입력 
+    graph["A"] = {} 
+    graph["A"]["B"] = 5 
+    graph["A"]["C"] = 0 
+    graph["B"] = {} 
+    graph["B"]["D"] = 15 
+    graph["B"]["E"] = 20 
+    graph["C"] = {} 
+    graph["C"]["D"] = 30 
+    graph["C"]["E"] = 35 
+    graph["D"] = {}
+    graph["D"]["F"] = 20 
+    graph["E"] = {} 
+    graph["E"]["F"] = 10 
+    graph["F"] = {} 
+    # ---------------------------------------- 
+    infinity = float("inf") 
+    # ------------------------------------------ 
+    costs = {} # 해당 노드 최단경로 입력 
+    costs["A"] = infinity 
+    costs["B"] = infinity 
+    costs["C"] = infinity 
+    costs["D"] = infinity 
+    costs["E"] = infinity 
+    costs["F"] = infinity 
+    # ------------------------------------------- 
+    # parents = {} # 추적 경로를 위해 부모 설정 
+    parents["B"] = None 
+    parents["C"] = None 
+    parents["D"] = None 
+    parents["E"] = None 
+    parents["F"] = None 
+    # ------------------------------------------- 
+    processed = []
 
-
-def init():
-    global graph, infinity, costs, parents, processed
-
-    graph = {}
-    graph["DaeyangAI"]
+출처: https://www.crocus.co.kr/1688 [Crocus]
 
 
 def find_lowest_cost_node(costs): 
@@ -52,5 +83,3 @@ def dijkstra(graph, start, final):
         print("최단 거리 : ", costs[final]) 
         print("진행 과정 : ", processed) 
         print("경로 : ", trace)
-
-출처: https://www.crocus.co.kr/1688 [Crocus]
