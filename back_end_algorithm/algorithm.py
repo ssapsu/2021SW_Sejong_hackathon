@@ -6,8 +6,51 @@ cost = {}
 parents = {}
 processed = []
 
-def init()
+DaeYangAI = arr[0][][][]
+
+
+def init():
     global graph, infinity, costs, parents, processed
 
     graph = {}
     graph["DaeyangAI"]
+
+
+def find_lowest_cost_node(costs): 
+    lowest_cost = float("inf") 
+    lowest_cost_node = None
+    for node in costs: 
+        cost = costs[node] 
+        if cost < lowest_cost and node not in processed: 
+            lowest_cost = cost 
+            lowest_cost_node = node 
+    return lowest_cost_node
+
+# 다익스트라 알고리즘 
+def dijkstra(graph, start, final): 
+    node = start 
+    costs[start] = 0 
+    while node is not None: 
+        cost = costs[node] 
+        neighbors = graph[node] 
+        for n in neighbors.keys(): 
+            new_cost = cost + neighbors[n] 
+            if costs[n] > new_cost: # 현재 가지고있는 cost보다 new_cost가 더 최단거리라면 
+                costs[n] = new_cost # 갱신 
+                parents[n] = node 
+                processed.append(node) 
+                node = find_lowest_cost_node(costs) # 경로 추적 로직 
+    trace = [] 
+    current = final 
+    while current != start: 
+        trace.append(current) 
+        current = parents[current] 
+        trace.append(start) 
+        trace.reverse() 
+        print("=== Dijkstra ===") 
+        print(start, "에서 ", final, "까지의 정보") 
+        print("최단 거리 : ", costs[final]) 
+        print("진행 과정 : ", processed) 
+        print("경로 : ", trace)
+
+출처: https://www.crocus.co.kr/1688 [Crocus]
