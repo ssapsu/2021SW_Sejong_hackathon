@@ -1,2 +1,2 @@
 # 2021SW_Sejong_hackathon
-Member//Ohhyeonsu/Weonjuyeon/Kimkyounghwan/janghyochang/Kimsanggun
+우리는 빡빡이다
